@@ -17,7 +17,7 @@ class CreateTransactionService {
   public execute({ title, value, type }: Request): Transaction {
     const { total } = this.transactionsRepository.getBalance();
 
-    if (type === 'outcome' && total < value) {
+    if (type === 'outcome' && total < total) {
       throw new Error('You do not have enough balance');
     }
 
